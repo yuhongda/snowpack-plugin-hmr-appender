@@ -1,11 +1,17 @@
 import type { SnowpackPluginFactory } from "snowpack";
 
 const plugin: SnowpackPluginFactory = () => ({
-  name: "my-snowpack-plugin",
-  input: [".js"],
-  async build({ contents, fileExt, filePath, isDev }: any) {
-    console.table({ contents, fileExt, filePath, isDev });
-    return contents;
+  name: "snowpack-plugin-hmr-appender",
+  async transform({id, contents}) {
+    if (/.*\.mst\.(js|jsx|ts|tsx)$/.test(id)) {
+      return `
+        ${contents}
+        /* esm-hmr for snowpack */ 
+        import.meta.hot.accept(({ module }) => {
+          import.meta.hot.invalidate();
+        });
+      `;
+    }
   },
 });
 

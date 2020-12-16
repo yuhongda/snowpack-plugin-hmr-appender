@@ -1,8 +1,25 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "skipLibCheck": true,
-    "strict": true
-  }
+      "outDir": "dist",
+      "allowSyntheticDefaultImports": true,
+      "lib": [
+          "dom",
+          "es6"
+      ],
+      "jsx": "react",
+      "target": "es5",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "noImplicitAny": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "removeComments": false,
+      "preserveConstEnums": true,
+      "sourceMap": true,
+      "skipLibCheck": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "allowJs": true
+  },
 }
