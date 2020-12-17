@@ -1,6 +1,32 @@
-# snowpack-plugin-starter-template
+# snowpack-plugin-hmr-appender
 
-Blank template to easily author a Snowpack template.
+add fallback code for mst store file like '*.mst.(js|jsx|ts|tsx)'
 
-- `npm run build`: Build the template
-- `npm run deploy`: Publish the template to npm using np
+Install
+-----
+
+```javascript
+
+yarn add -D snowpack-plugin-hmr-appender
+
+```
+
+
+Usage
+-----
+
+And then in `snowpack.config.ts`
+
+```javascript
+
+export default {
+  ...
+  plugins: [
+    ['@snowpack/plugin-react-refresh'],
+    ['snowpack-plugin-hmr-appender'],
+  ],
+  ...
+}
+
+```
+
