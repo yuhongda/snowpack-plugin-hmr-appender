@@ -42,7 +42,7 @@ var plugin = function () { return ({
         var id = _a.id, contents = _a.contents;
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                if (/.*\.mst\.(js|jsx|ts|tsx)$/.test(id)) {
+                if (/.*\.(mst|store)\.(js|jsx|ts|tsx)$/.test(id)) {
                     return [2 /*return*/, "\n        " + contents + "\n        /* esm-hmr for snowpack */ \n        import.meta.hot.accept(({ module }) => {\n          import.meta.hot.invalidate();\n        });\n      "];
                 }
                 return [2 /*return*/];

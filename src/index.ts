@@ -3,7 +3,7 @@ import type { SnowpackPluginFactory } from "snowpack";
 const plugin: SnowpackPluginFactory = () => ({
   name: "snowpack-plugin-hmr-appender",
   async transform({id, contents}) {
-    if (/.*\.mst\.(js|jsx|ts|tsx)$/.test(id)) {
+    if (/.*\.(mst|store)\.(js|jsx|ts|tsx)$/.test(id)) {
       return `
         ${contents}
         /* esm-hmr for snowpack */ 
