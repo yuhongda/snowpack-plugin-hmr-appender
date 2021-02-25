@@ -1,6 +1,6 @@
 # snowpack-plugin-hmr-appender
 
-add fallback code for mst store file like '*.mst.(js|jsx|ts|tsx)'
+add fallback code `import.meta.hot.invalidate();` for mst store file like '*.mst.(js|jsx|ts|tsx)'
 
 Install
 -----
