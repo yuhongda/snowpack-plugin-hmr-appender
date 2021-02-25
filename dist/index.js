@@ -36,14 +36,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var plugin = function () { return ({
+var plugin = function (_snowpackConfig, pluginOptions) { return ({
     name: "snowpack-plugin-hmr-appender",
     transform: function (_a) {
         var id = _a.id, contents = _a.contents;
         return __awaiter(this, void 0, void 0, function () {
+            var filters, i, regEx;
             return __generator(this, function (_b) {
-                if (/.*\.(mst|store)\.(js|jsx|ts|tsx)$/.test(id)) {
-                    return [2 /*return*/, "\n        " + contents + "\n        /* esm-hmr for snowpack */ \n        import.meta.hot.accept(({ module }) => {\n          import.meta.hot.invalidate();\n        });\n      "];
+                filters = pluginOptions.filters;
+                if (filters && Array.isArray(filters)) {
+                    for (i = 0; i < filters.length; i++) {
+                        regEx = new RegExp(filters[i]);
+                        if (regEx.test(id)) {
+                            return [2 /*return*/, "\n          " + contents + "\n          /* esm-hmr for snowpack */ \n          import.meta.hot.accept(({ module }) => {\n            import.meta.hot.invalidate();\n          });\n        "];
+                        }
+                    }
                 }
                 return [2 /*return*/];
             });

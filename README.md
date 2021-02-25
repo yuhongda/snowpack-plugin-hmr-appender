@@ -23,7 +23,7 @@ export default {
   ...
   plugins: [
     ['@snowpack/plugin-react-refresh'],
-    ['snowpack-plugin-hmr-appender'],
+    ['snowpack-plugin-hmr-appender', { filters: ['.*.(mst|store).(js|jsx|ts|tsx)$'] }],
   ],
   ...
 }
